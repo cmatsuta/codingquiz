@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="Assets/css/style.css">
+    <title>End of Quiz</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="end" class="flex-center flex-column">
+            <h1 id="finalScore">0</h1>
+            <form>
+                <input 
+                type="text"
+                name="userinitial"
+                id="userinitial"
+                planceholder="userinitial"
+                />
+                <button
+                type="submit"
+                class="btn"
+                id="saveBtn"
+                onClick = "saveHighScore(event)"
+                >
+                Save</button>
+            </form>
+            <a class="btn" href="index.html">Start Over</a>
+            <a class="btn" href="">Go Home</a>
+
+        </div>
+    </div>
+    <script src="Assets/js/end.js"></script>
+    
+
+</body>
+</html>
