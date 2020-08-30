@@ -13,7 +13,8 @@ start.addEventListener("click", startQuiz);
 
 //variable for score
 var score = 0;
-var saveBtn = document.querySelector("#saveBtn");
+var saveBtn = document.getElementById("saveBtn");
+var saveBtnTxt = document.getElementById("saveBtn").textContent;
 
 function saveScore() {
     var userInput = document.querySelector('#userinitial').value;
@@ -100,7 +101,5 @@ function checkAnswer() {
     index++;
     renderQuestion();
 }
-
-
 
 window.addEventListener("load", renderQuestion, false);
