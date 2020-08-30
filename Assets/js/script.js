@@ -13,14 +13,13 @@ start.addEventListener("click", startQuiz);
 
 //variable for score
 var score = 0;
-var userInput = document.querySelector("#userinitial").value;
 var saveBtn = document.querySelector("#saveBtn");
-localStorage.setItem("initial", userInput);
 
 function saveScore() {
-    document.getElementById("saveBtn").innerHTML = localStorage.getItem("userInput")
-}
-
+    var userInput = document.querySelector('#userinitial').value;
+    localStorage.setItem('initial', userInput);
+    document.getElementById('saveBtn').innerHTML = localStorage.getItem('userInput');
+  }
 
 // const myScore = JSON.parse(localStorage.getItem("correct")) || [];
 
@@ -31,6 +30,7 @@ function startQuiz() {
     quiz.style.display = "block";
     renderCounter();
     quizTime = setInterval(renderCounter, 1000); // 1000ms = 1s
+    saveScore();
 }
 
 function init(x) {
@@ -43,11 +43,7 @@ function renderQuestion() {
     if (index >= questions.length) {
         test.innerHTML = "<h2>Your score is " + correct + " of " + questions.length + " .</h2>";
         init("renderQuestions").innerHTML = "Game Over!";
-        function renderSubmit() {
-        var initial = localStorage.getItem(userInput);
-        var correct = localStorage.getItem(correct); 
-        };
-
+        end.style.display = "block";
         index = 0;
         correct = 0;
         return false;
@@ -89,9 +85,9 @@ function checkAnswer() {
     for (var i = 0; i < choices.length; i++) {
         if (choices[i].checked) {
             choice = choices[i].value;
-        }
+        } 
     }
-
+    
     if (choice == questions[index][5]) {
         correct++;
         score += correct;
@@ -104,6 +100,7 @@ function checkAnswer() {
     index++;
     renderQuestion();
 }
+
 
 
 window.addEventListener("load", renderQuestion, false);
