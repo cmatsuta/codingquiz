@@ -5,19 +5,24 @@ var correct = 0;
 const start = document.getElementById("start");
 const quiz = document.getElementById("quiz");
 const counter = document.getElementById("counter");
+const end = document.getElementById("end");
 let quizTime;
 let count = 40;
 const questionTime = 40;
 start.addEventListener("click", startQuiz);
 
 //variable for score
-var username = document.querySelector("#name");
-var saveBtn = document.querySelector("#save");
-var finalScore = document.querySelector("#finalScore");
-var lastScore = localStorage.getItem("#lastScore");
+var score = 0;
+var userInput = document.querySelector("#userinitial").value;
+var saveBtn = document.querySelector("#saveBtn");
+localStorage.setItem("initial", userInput);
 
-var highScore = JSON.parse(localStorage.getItem("highScore")) || [];
+function saveScore() {
+    document.getElementById("saveBtn").innerHTML = localStorage.getItem("userInput")
+}
 
+
+// const myScore = JSON.parse(localStorage.getItem("correct")) || [];
 
 // start quiz
 function startQuiz() {
@@ -37,7 +42,12 @@ function renderQuestion() {
     test = init("test");
     if (index >= questions.length) {
         test.innerHTML = "<h2>Your score is " + correct + " of " + questions.length + " .</h2>";
-        init("renderQuestions").innerHTML = "All Done!";
+        init("renderQuestions").innerHTML = "Game Over!";
+        function renderSubmit() {
+        var initial = localStorage.getItem(userInput);
+        var correct = localStorage.getItem(correct); 
+        };
+
         index = 0;
         correct = 0;
         return false;
@@ -54,7 +64,7 @@ function renderQuestion() {
     test.innerHTML += "<input type='radio' name='choices' value='B'> " + choiceB + "<br>";
     test.innerHTML += "<input type='radio' name='choices' value='C'> " + choiceC + "<br>";
     test.innerHTML += "<input type='radio' name='choices' value='D'> " + choiceD + "<br>";
-    test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
+    test.innerHTML += "<button onclick='checkAnswer()'style = 'background-color: #279; color: #fff;'>Submit Answer</button>";
 }
 
 // rendr counter function
@@ -81,15 +91,19 @@ function checkAnswer() {
             choice = choices[i].value;
         }
     }
+
     if (choice == questions[index][5]) {
         correct++;
+        score += correct;
         displayMessage("correct", "Correct!");
     } else {
         displayMessage("wrong", "Wrong Answer!");
         count -= 5;
     }
+
     index++;
     renderQuestion();
 }
+
 
 window.addEventListener("load", renderQuestion, false);

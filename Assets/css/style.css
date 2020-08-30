@@ -32,10 +32,6 @@ p {
     color : lightseagreen;
   }
 
-div#test{
-  border: #5AB029 3px solid;
-  }
-
 #test_status{
   position: absolute;
   left: 400px;
@@ -72,13 +68,14 @@ div#test{
 
   #saveBtn {
     font-family: 'Work Sans', sans-serif;
-    font-size: 20px;
+    font-size: 15px;
     background-color: #279;
     color: #fff;
     border: 0px;
     text-align: center;
     border-radius: 3px;
-    padding: 20px;
+    padding: 15px 45px;
     cursor: pointer;
     margin-bottom: 20px;
+    line-height: 1.5;
   }

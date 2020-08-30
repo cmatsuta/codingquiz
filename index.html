@@ -29,26 +29,15 @@
 
             <div id="test"></div>
             <div id="msg"></div>
+            <div id="score"></div>
 
-            <!-- for score tracking -->
+            <!-- Enter initial and save it to local storage-->
             <div class="container">
-                <div id="progress" class="justify-center flex-column">
-                    <div id="hud-item">
-                        <p id="hud-prefix">
-                            Question
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Final score display -->
-            <div class="container">
-                <div id="end" class="flex-center flex-column" style="display: none;">
-                    <h1 id="finalScore">0</h1>
+                <!-- <div id="end" class="flex-center flex-column" style="display: none;"> -->
+                <div id="end" class="flex-center flex-column">
                     <form>
-                        <input type="text" name="userinitial" id="userinitial" planceholder="userinitial" />
-                        <button type="submit" class="btn" id="saveBtn" onClick="saveHighScore(event)">
-                            Save</button>
+                        <input type="text" name="userinitial" id="userinitial" placeholder="initial" />
+                        <button type="submit" class="btn" id="saveBtn" onclick="saveScore()">Save</button>
                     </form>
                 </div>
             </div>
