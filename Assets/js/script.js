@@ -18,8 +18,7 @@ var saveBtnTxt = document.getElementById("saveBtn").textContent;
 
 function saveScore() {
     var userInput = document.querySelector('#userinitial').value;
-    localStorage.setItem('initial', userInput);
-    document.getElementById('saveBtn').innerHTML = localStorage.getItem('userInput');
+    localStorage.setItem('initial', JSON.stringify(userInput));
   }
 
 // const myScore = JSON.parse(localStorage.getItem("correct")) || [];

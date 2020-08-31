@@ -17,4 +17,3 @@ A player can save his/her initial at the end of the quiz**.
 
 ## Current Issue
 Quiz can be answered even if the timer reaches 0.
-Form to input initial is available anytime during the quiz and won't save the information properly. 
